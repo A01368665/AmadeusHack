@@ -9,6 +9,15 @@ RutasDenuncia.get("/", (req, res) => {
         res.json(denuncias)
     }).catch( error => console.log(error))
 })
+
+RutasDenuncia.get("/:id", (req, res) => {
+  
+    Denuncia.findById(req.params.id)
+    
+    .then( denuncia => {
+        res.json(denuncia)
+    }).catch( error => console.log(error))
+})
 //esto no debe existir en documento final
 //solo es para verificar su funcionameinto
 
@@ -21,7 +30,11 @@ caracteristicas: body.caracteristicas})
 
 
 entrada.save()
-.then(entr => res.status(201).json(entr))
+.then(entr => {
+   
+    res.status(201).json(entr)
+}
+)
 .catch( error => console.log(error))
 
 })
