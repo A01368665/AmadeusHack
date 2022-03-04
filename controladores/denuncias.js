@@ -18,9 +18,12 @@ RutasDenuncia.post("/", (req, res) => {
 const entrada = new Denuncia({titulo: body.titulo,
 denunciado: body.denunciado, 
 caracteristicas: body.caracteristicas})
+
+
 entrada.save()
 .then(entr => res.status(201).json(entr))
 .catch( error => console.log(error))
+
 })
 
 
