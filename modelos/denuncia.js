@@ -1,6 +1,4 @@
-const { default: mongoose } = require("mongoose")
-
-mongoose = require("mongoose")
+const mongoose = require("mongoose")
 
 const DenunciaSchema = new mongoose.Schema({
 

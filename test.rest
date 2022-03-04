@@ -1,0 +1,8 @@
+GET http://localhost:3001/api/denuncias HTTP/1.1
+content-type: application/json
+
+{
+    "titulo": "sample",
+    "denunciado": "Wed, 21 Oct 2015 18:27:50 GMT",
+    "caracteristicas": "papas"
+}
