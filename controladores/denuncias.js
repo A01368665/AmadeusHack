@@ -1,6 +1,6 @@
 const RutasDenuncia = require("express").Router()
 const bcrypt = require('bcrypt')
-const {SECRET} = require("./utilidades/config")
+const {SECRET} = require("../utilidades/config")
 const jwt = require('jsonwebtoken')
 const Denuncia = require("../modelos/denuncia")
 const { response } = require("express")
@@ -8,7 +8,7 @@ const { response } = require("express")
 const getToken = req => {
   const autorizacion = req.get('authorization')
   if (autorizacion && autorizacion.toLowerCase().startsWith('bearer ')) {
-    return authorization.substring(7)
+    return autorizacion.substring(7)
     //regresa el token web
     //tomado del auth heather
     //
@@ -16,10 +16,12 @@ const getToken = req => {
   return null
 }
 
-RutasDenuncia.get("/", async (req, res) => {
-   const denuncias = await Denuncia.find({})
-   res.json(denuncias)
-})
+// RutasDenuncia.get("/", async (req, res) => {
+//    const denuncias = await Denuncia.find({})
+//    res.json(denuncias)
+// })
+
+//solo pueden acceder usuarios a su propia solicitud.
 
 RutasDenuncia.get("/:folio", async (req, res) => {
   const body = req.body

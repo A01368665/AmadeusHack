@@ -1,3 +1,3 @@
-GET http://localhost:3001/api/denuncias/si HTTP/1.1
+GET http://localhost:3001/api/denuncias/doce HTTP/1.1
 content-type: application/json
-
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmb2xpbyI6ImRvY2UiLCJpZCI6IjYyMjM1MzFmODM2ZjQ3ZGZjN2VlZDMxOCIsImlhdCI6MTY0NjQ4MjI0MH0.BfC1S63DX0C6yszvRuGhiReLGr9Ls-lZ6AWAs9OtBqY
