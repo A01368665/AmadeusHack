@@ -1,0 +1,375 @@
+body {
+  background-color: #ffffff;
+}
+
+header {
+  background:#ffffff;
+	color:#f6c705;
+	font-size:20pt;
+	font-family:Century Gothic;
+	text-align: left;
+}
+
+.Subtitulo {
+  color: #e03873;
+  font-size:25pt;
+  font-family: Century Gothic;
+  text-align: left;
+  font-weight: bold;
+}
+
+.TextoGeneral {
+  color: black;
+  font-size:20pt;
+  font-family: Century Gothic;
+  text-align: left;
+}
+
+.opc{
+  color: #111111;
+  font-size: 17pt;
+  font-family: Calibri;
+  text-align: center;
+}
+
+h5 {
+	color:#8fbad1;
+	font-size:10pt;
+	font-family:Cambria;
+	text-align: justify;
+}
+
+h3 {
+	color:#8fbad1;
+	font-size:10pt;
+	font-family:Cambria;
+	text-align: justify;
+}
+
+.HEADER{
+  display:flex;
+}
+
+.inicioboton {
+  font-family: Century Gothic;
+	background: #8088b0;
+	color: #ffffff;
+	font-size: 16pt;
+	width: 150px;
+	height: 50px;
+	border-color:#ffffff;
+  
+	border-radius: 20px;
+	text-align: center;
+}
+
+.formboton {
+  font-family: Century Gothic;
+	background: #8088b0;
+	color: #ffffff;
+	font-size: 16pt;
+	width: 150px;
+	height: 50px;
+	border-color:#ffffff;
+  
+	border-radius: 20px;
+	text-align: center;
+}
+
+
+.contactoboton {
+  font-family: Century Gothic;
+	background: #8088b0;
+	color: #ffffff;
+	font-size: 16pt;
+	width: 150px;
+	height: 50px;
+	border-color:#ffffff;
+  
+	border-radius: 20px;
+	text-align: center;
+}
+
+.ayudaboton {
+  font-family: Century Gothic;
+	background: #8088b0;
+	color: #ffffff;
+	font-size: 16pt;
+	width: 150px;
+	height: 50px;
+	border-color:#ffffff;
+  
+	border-radius: 20px;
+	text-align: center;
+}
+
+.participaboton {
+  font-family: Century Gothic;
+	background: #8088b0;
+	color: #ffffff;
+	font-size: 16pt;
+	width: 150px;
+	height: 50px;
+	border-color:#ffffff;
+  
+	border-radius: 20px;
+	text-align: center;
+}
+
+.consboton {
+  font-family: Century Gothic;
+	background: #8088b0;
+	color: #ffffff;
+	font-size: 16pt;
+	width: 150px;
+	height: 50px;
+	border-color:#ffffff;
+  
+	border-radius: 20px;
+	text-align: center;
+}
+
+.botondencons {
+  font-family: Century Gothic;
+	background: #45aae1;
+	color: #ffffff;
+	font-size: 24pt;
+	width: 400px;
+	height: 80px;
+	border-color:#45aae1;
+	border-radius: 10px;
+	text-align: center;
+}
+
+button:hover {
+  color: #ffffff;
+	background: #f6c705;
+	border-color: #f6c705;
+}
+
+
+  #menu{
+ display: none;
+        }
+#hamburguesa{
+ 
+  max-height: 5vh;
+ display: block;
+
+}
+
+.sigcorr{
+  display: flex;
+}
+
+.dante{
+  width: 50%;
+  height: auto;
+}
+
+.banner{
+  width: 100%;
+  height: auto;
+}
+
+.bannerCont{
+  width: 100%;
+  height: auto;
+}
+
+.corrupcion{
+  width: 50%;
+  height: 50%;
+}
+
+.significado{
+  width: 50%;
+  height: 50%;
+}
+
+.opc{
+  width:50%;
+  height:50%;
+}
+
+.separadoramarillo{
+  background: #fee88a;
+  height:20px;
+}
+
+.separadorrosa{
+  background: #e03873;
+  height:20px;
+}
+
+.separadorblanco{
+  background: #ffffff;
+  height:10px;
+}
+
+.tipos{
+  width: 100%;
+  height: 100%;
+}
+
+/*FILA 1*/
+
+.FILA1{
+  display: flex;
+  width:100%;
+  height:auto;
+  justify-content: center;
+  align-items:center;
+}
+
+.AFTexto {
+  display: none;
+}
+
+.Abusofunc:hover + .AFTexto {
+  display: block;
+  color: black;
+  width:100%;
+  height:auto
+}
+
+.ABITexto {
+  display: none;
+}
+
+.Accionbajointeres:hover + .ABITexto {
+  display: block;
+  color: black;
+}
+
+.CoTexto {
+  display: none;
+}
+
+.Cohecho:hover + .CoTexto {
+  display: block;
+  color: #e03873;
+}
+
+/* FILA 2*/
+
+.FILA2{
+  display: flex;
+  width:100%;
+  height:auto;
+  justify-content: center;
+  align-items:center;
+}
+
+.CITexto {
+  display: none;
+}
+
+.Contindebida:hover + .CITexto {
+  display: block;
+  color: black;
+}
+
+.DTexto {
+  display: none;
+}
+
+.Descaro:hover + .DTexto {
+  display: block;
+  color: black;
+}
+
+.DRTexto {
+  display: none;
+}
+
+.Desviorecursos:hover + .DRTexto {
+  display: block;
+  color: black;
+}
+
+/* FILA 3 */
+
+.FILA3{
+  display: flex;
+  width:100%;
+  height:auto;
+  justify-content: center;
+  align-items:center;
+}
+
+.UTexto {
+  display: none;
+}
+
+.Utilizacion:hover + .UTexto {
+  display: block;
+  color: black;
+}
+
+.NTexto {
+  display: none;
+}
+
+.Nepotismo:hover + .NTexto {
+  display: block;
+  color: black;
+}
+
+.PTexto {
+  display: none;
+}
+
+.Peculado:hover + .PTexto {
+  display: block;
+  color: black;
+}
+
+.FILA4{
+  display: flex;
+  width:100%;
+  height:auto;
+  justify-content: center;
+  align-items:center;
+}
+
+.SimTexto {
+  display: none;
+}
+
+.Simulacion:hover + .SimTexto {
+  display: block;
+  color: black;
+}
+
+.SobTexto {
+  display: none;
+}
+
+.Soborno:hover + .SobTexto {
+  display: block;
+  color: black;
+}
+
+.ETexto {
+  display: none;
+}
+
+.Encubrimiento:hover + .ETexto {
+  display: block;
+  color: black;
+}
+
+p {
+  font-family: Century Gothic;
+  font-size: 24;
+  color: black;
+}
+
+.IMAGENES {
+  justify-content: center;
+  align-items:center;
+  flex-direction:column;
+}
+
+/* fff7d6, fee88a, f6c705, d2e8f4, 8fbad1, 45aae1 */

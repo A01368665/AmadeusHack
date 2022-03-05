@@ -1,10 +1,10 @@
 const RutasD = require("express").Router()
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
+
+
 const config= require("../utilidades/config")
 const Denuncia = require("../modelos/denuncia")
-
-
 
 
 //utilizamos nuestro modelo de denuncia
@@ -19,10 +19,10 @@ const getToken = req => {
   return null
 }
 
-// RutasDenuncia.get("/", async (req, res) => {
-//    const denuncias = await Denuncia.find({})
-//    res.json(denuncias)
-// })
+RutasD.get("/", async (req, res) => {
+   const denuncias = await Denuncia.find({})
+   res.json(denuncias)
+})
 
 //solo pueden acceder usuarios a su propia solicitud.
 
@@ -52,7 +52,7 @@ return res.status(401).json({error: "no existe el token solicitado."})
   //regresamos la nota encontrada
 })
 
-RutasD.post("/", async (req, res) => {
+RutasD.post("/",async (req, res) => {
 const body = req.body
 const { folio, contra } = body
 

@@ -1,7 +1,7 @@
 const config = require("./utilidades/config")
 const express = require("express")
 const app = express()
-
+app.use(express.static('Hackathon'))
 const cors = require("cors")
 const rutasD = require("./controladores/denuncias")
 const rutasL = require("./controladores/login")
@@ -19,7 +19,7 @@ mongoose.connect("mongodb+srv://altoalacorrupcion:w6FB2zN6prhH1f6l@cluster0.q0iu
 
 app.use(cors())
 app.use(express.json())
-app.use(express.static('build'))
+
 app.use("/api/denuncias", rutasD)
 app.use("/api/login", rutasL)
 
