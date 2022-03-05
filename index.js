@@ -1,7 +1,7 @@
 const config = require("./utilidades/config")
 const express = require("express")
 const app = express()
-app.use('/', express.static('build'));
+app.use(express.static('build'));
 const cors = require("cors")
 const rutasD = require("./controladores/denuncias")
 const rutasL = require("./controladores/login")
