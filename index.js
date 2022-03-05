@@ -20,9 +20,6 @@ mongoose.connect("mongodb+srv://altoalacorrupcion:w6FB2zN6prhH1f6l@cluster0.q0iu
 app.use(cors())
 app.use(express.json())
 
-app.get("/", (req, res) => {
-res.send("<h1>Conectado al backend correctamente.</h1>")
-})
 
 app.use("/api/denuncias", rutasD)
 app.use("/api/login", rutasL)
@@ -31,7 +28,7 @@ app.use(middleware.unknownEndpoint)
 app.use(middleware.ErrorHandler)
 
 app.listen(config.PORT, () => {
-    console.log("El servidor esta online! " + 3001)
+    console.log("El servidor esta online! " + config.PORT)
 })
 
 
