@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+  <link rel="stylesheet" type="text/css" href="diseño.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale-1.0">
+  <title>Denuncias</title>
+  <link rel="stylesheet" href="DFormulario.css">
+  <script type="text/javascript" src="DFValidar.js"></script>
+  <script src="DFValidar.js"></script>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale-1.0">
+  <script src="https://kit.fontawesome.com/a076d05399.js>"></script>
+  <style>
+    #siresp, #siresp2, #no, #Reg, #DenS, #DenE, #DenN{
+    display: none;
+  }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <img src="Dante.png" height="80" class="dante">
+      <div class="botonesbarra">
+        <a href="index.html" target="central" align="right"><button class="inicioboton" style="border:none">Inicio</button></a>
+        <a href="Formulario.html" target="central" align="right"><button class="formboton" style="border:none">Denunciar</button></a>
+        <a href="Consulta.html" target="central" align="right"><button class="consboton" style="border:none">Consultar</button></a>
+        <a href="Ayuda.html" target="central" align="right"><button class="ayudaboton" style="border:none">Ayuda</button></a>
+        <a href="Contacto.html" target="central" align="right"><button class="contactoboton" style="border:none">Contacto</button></a>
+        <a href="Participa.html" target="central" align="right"><button class="participaboton" style="border:none">¡Participa!</button></a>
+      </div>
+      <div class="separadorblanco">
+      </div>
+      <div class="separadorrosa">
+      </div>
+      Datos de la denuncia</header>
+    
+  <div class="form-princ">
+    <form action="#">
+  
+    <!-- ÞAGINA 1 -->
+  
+    <div class="pagina">
+      <div class="titulo">Datos de los hechos</div>
+      <div class="label">Los datos recabados en esta página serán protegidos y confidenciales. </div> 
+      <div class="label"> No se compartirán a terceros bajo ninguna circunstancia sin previo consentimiento del denunciante. </div> 
+  
+      <div class="campo">
+        <div class="label">¿Cuál es el motivo de su denuncia?</div>
+        <input required type="text" id="Motivo" placeholder="Motivo de denuncia">
+      </div>
+      <div class="campo">
+        <div class="label">Fecha y hora aproximada de los hechos: </div>
+        <input required type="datetime-local" id="FechaHora" name="Fecha">
+      </div>
+      <div class="campo">
+        <div class="label">Estado en el que ocurrieron los hechos: </div>
+        <select required id="Estado"> 1
+          <option value="-1" disabled selected> -- Elige una opción -- </option>
+          <option value="1"> Aguascalientes </option>
+          <option value="2"> Baja California </option>
+          <option value="3"> Baja California Sur </option>
+          <option value="4"> Campeche </option>
+          <option value="5"> Chiapas </option>
+          <option value="6"> Chihuahua </option>
+          <option value="7"> Ciudad de México </option>
+          <option value="8"> Coahuila de Zaragoza </option>
+          <option value="9"> Colima </option>
+          <option value="10"> Durango </option>
+          <option value="11"> Estado de México </option>
+          <option value="12"> Guanajuato </option>
+          <option value="13"> Guerrero </option>
+          <option value="14"> Hidalgo </option>
+          <option value="15"> Jalisco </option>
+          <option value="16"> Michoacán de Ocampo </option>
+          <option value="17"> Morelos </option>
+          <option value="18"> Nayarit </option>
+          <option value="19"> Nuevo León </option>
+          <option value="20"> Oaxaca </option>
+          <option value="21"> Puebla </option>
+          <option value="22"> Querétaro </option>
+          <option value="23"> Quintana Roo </option>
+          <option value="24"> San Luis Potosí </option>
+          <option value="26"> Sonora </option>
+          <option value="27"> Tabasco </option>
+          <option value="28"> Tamaulipas </option>
+          <option value="29"> Tlaxcala </option>
+          <option value="30"> Veracruz de Ignacio de la Llave </option>
+          <option value="31"> Yucatán </option>
+          <option value="32"> Zacatecas </option>
+        </select>
+      </div>
+      <div class="campo">
+        <div class="label">¿En qué sitio sucedieron los hechos?</div>
+        <input required type="text" id="Lugar" placeholder="Lugar de los hechos">
+      </div>
+      <div class="campo">
+        <div class="label"> ¿Requieres medidas de protección? </div>
+        <select required id="Proteccion"> 1
+          <option value="-1" disabled selected> -- Elige una opción -- </option>
+          <option value="1"> Si </option>
+          <option value="2"> No </option>
+        </select>
+      </div>
+      <input type="submit" value="Guardar">
+    </div>
+  
+    <!-- ÞAGINA 2 -->
+    
+    <div class="pagina">
+      <div class="titulo"> Datos del denunciado </div>
+      <div class="label"> ¿Desea denunciar alguien en específico? </div>
+      <button id="botonDenE" onclick="mostrarDenE();"> Sí </button>
+      <div id="DenE">
+        <div class="campo">
+          <div class="label">El presunto responsable es: </div>
+          <select id="Presunto">
+            <option value -1 disabled selected> -- Elige una opción </option>
+            <option value 1> Servidor público </option>
+            <option value 2> Persona particular o física </option>
+            <option value 3> Empresa u Organización </option>
+          </select>
+        </div>
+        <div class="campo">
+          <div class="label"> Características físicas. </div>
+          <div class="label"> En caso de ser una persona particular o servidor público, por favor llene los siguientes rubros. De no ser el caso, ingrese NA. </div>
+            <div class="campo">
+              <div class="label"> Seleccione su sexo. </div>
+                <select id="Sexo"> 1
+                  <option value="-1" disabled selected> -- Elige una opción -- </option>
+                  <option value="1"> Femenino </option>
+                  <option value="2"> Masculino </option>
+                  <option value="3"> NA </option>
+                </select>
+            </div>
+            <div class="campo">
+              <div class="label"> Aproximadamente, ¿cuánto mide? De su respuesta en metros. </div>
+              <input type="number" id="Estatura" placeholder="Estatura">
+            </div>
+            <div class="campo">
+              <div class="label"> Aproximadamente, ¿cuál es su edad? </div>
+              <input type="number" id="Edad" placeholder="Edad" min="15">
+            </div>
+            <div class="campo">
+              <div class="label"> ¿Cuál es el color de su cabello? </div>
+              <select id="Cabello"> 1
+                <option value="-1" disabled selected> -- Elige una opción -- </option>
+                <option value="1"> Castaño oscuro </option>
+                <option value="2"> Castaño claro </option>
+                <option value="3"> Rubio </option>
+                <option value="4"> Pelirrojo </option>
+                <option value="5"> Negro </option>
+                <option value="6"> NA </option>
+              </select>
+            </div>
+            <div class="campo">
+              <div class="label"> ¿De qué tono es su tez? </div>
+              <select id="Tez"> 1
+                <option value="-1" disabled selected> -- Elige una opción -- </option>
+                <option value="1"> Blanco </option>
+                <option value="2"> Moreno claro </option>
+                <option value="3"> Moreno medio </option>
+                <option value="4"> Moreno oscuro </option>
+                <option value="5"> Negro </option>
+                <option value="6"> NA </option>
+              </select>
+            </div>
+            <div class="campo">
+              <div class="label"> ¿De qué color son sus ojos? </div>
+              <select id="Ojos"> 1
+                <option value="-1" disabled selected> -- Elige una opción -- </option>
+                <option value="1"> Cafés </option>
+                <option value="2"> Verdes </option>
+                <option value="3"> Azules </option>
+                <option value="4"> Miel </option>
+                <option value="5"> NA </option>
+              </select>
+            </div>
+            <div class="campo">
+            <div class="label"> ¿Notó alguna seña particular que pudiera ayudar a su reconocimiento? </div>
+            <input type="text" id="Seña" placeholder="Señas particulares">
+          </div>
+        </div>
+        <div class="campo">
+          <div class="label"> Características adicionales. </div>
+          <div class="label"> En caso de ser una persona particular o servidor público, por favor llene los siguientes rubros. De no ser el caso, ingrese NA. </div>
+          <div class="campo">
+            <div class="label"> ¿Sabe si el presunto responsable ocupa un cargo en el gobierno? </div>
+              <select id="Cargo"> 1
+                <option value="-1" disabled selected> -- Elige una opción -- </option>
+                <option value="1"> Si </option>
+                <option value="2"> No </option>
+                <option value="3"> NA </option>
+              </select>
+          </div>
+          <div class="campo">
+            <div class="label"> De responder sí, especifique. </div>
+            <input type="text" id="Cargotxt" placeholder="Cargo">
+          </div>
+          <div class="campo">
+            <div class="label"> ¿Cuenta con algún testigo? Especifique. </div>
+            <input type="text" id="Testigo" placeholder="Testigo">
+          </div>
+        </div>
+        <div class="campo">
+          <div class="label"> Datos de la empresa u organización </div>
+          <div class="label"> En caso de ser una empresa u organización, por favor llene los siguientes rubros. De no ser el caso, ingrese NA. </div>
+          <div class="campo">
+              <div class="label"> Nombre de la empresa y organización. </div>
+              <input type="text" id="emp/org" placeholder="Empresa u organización">
+          </div>
+          <div class="campo">
+            <div class="label"> ¿A qué se dedica la empresa u organización? </div>
+              <select id="emp/org-dedica"> 1
+                <option value="-1" disabled selected> -- Elige una opción -- </option>
+                <option value="1"> Comercial </option>
+                <option value="2"> Industrial </option>
+                <option value="3"> Servicio </option>
+                <option value="4"> ONG </option>
+                <option value="4"> NA </option>
+              </select>
+          </div>
+          <div class="campo">
+              <div class="label"> RFC </div>
+              <input type="text" max=13 id="emp/org" placeholder="RFC">
+          </div>
+        </div>
+        <div class="label">
+        <button id="botonreg" onclick="regresarD();"> Regresar </button>
+        </div>
+      </div>
+      <button id="botonDenS" name="No" onclick="mostrarDenS();"> No </button>
+        <div id="DenS"> 
+        <div class="campo">
+          <div class="label"> Puede continuar.  </div>
+        </div>
+        <button id="botonreg" onclick="regresarD();"> Regresar </button>
+      </div>
+      <input type="submit" value="Guardar">
+      <script>
+        function mostrarDenE(){
+          document.getElementById('DenE').style.display = 'block';
+          document.getElementById('botonDenS').style.display = 'none';
+          document.getElementById('botonreg').style.display = 'block';
+        }
+        function mostrarDenS(){
+          document.getElementById('botonDenE').style.display = 'none';
+          document.getElementById('botonDenS').style.display = 'block';
+          document.getElementById('botonreg').style.display = 'block';
+          document.getElementById('DenS').style.display = 'block';
+        }
+        function regresarD(){
+          document.getElementById('botonreg').style.display = 'none';
+          document.getElementById('DenE').style.display = 'none';
+          document.getElementById('botonDenE').style.display = 'block';
+          document.getElementById('botonDenS').style.display = 'block';
+          document.getElementById('DenS').style.display = 'none';
+        }
+      </script>
+  </div>       
+  
+  <!-- ÞAGINA3 -->
+  
+  <div class="pagina">
+    <div class="titulo"> Datos del denunciante </div> 
+    
+    <div class="campo">
+      <div class="label">¿Desea que su denuncia sea anónima? </div>
+      <button id="boton" onclick="mostrar();"> Sí </button>
+      <div class="campo" id="siresp"> 
+        <div class="campo">
+          <div class="label"> Si desea recibir actualizaciones, ingrese su correo electrónico o teléfono celular. </div>
+          <div class="label"> IMPORTANTE: Tenga en cuenta que si requiere de protección, debe dejar sus datos para que nuestro personal se ponga en contacto con usted. </div>
+          <input type="email" id="email" placeholder="Correo electrónico">
+          <input type="number" max=10 id="cel" placeholder="Teléfono"> 
+        </div>
+        <button id="botonRR" onclick="regresar();"> Regresar </button>
+      </div>   
+    </div>  
+    <button id="botonR" name="No" onclick="mostrarb();"> No </button>
+    <div class="campo" id="siresp2"> 
+      <div class="campo">
+        <div class="label">Usted es:  </div>
+        <select id="CargoC"> 1
+          <option value="-1" disabled selected> -- Elige una opción -- </option>
+          <option value="1"> Ciudadana(o) </option>
+          <option value="2"> Servidora(o) pública(o) </option>
+          <option value="3"> Miembro de un grupo empresarial </option>
+        </select>
+      </div>
+      <div class="campo">
+        <div class="label"> ¿Con qué género se identifica?  </div>
+        <select id="Genero"> 1
+          <option value="-1" disabled selected> -- Elige una opción -- </option>
+          <option value="1"> Mujer </option>
+          <option value="2"> Hombre </option>
+          <option value="3"> No binarie </option>
+        </select>
+      </div>
+      <div class="campo">
+        <div class="label"> Ingrese su correo electrónico o teléfono celular. </div>
+        <input type="email" id="email" placeholder="Correo electrónico">
+        <input type="number" id="cel" placeholder="Teléfono">
+      </div>
+      <button id="botonRR" onclick="regresar();"> Regresar </button>
+    </div>
+    <input type="submit" value="Guardar">
+    <script>
+      function mostrar(){
+        document.getElementById('siresp').style.display = 'block';
+        document.getElementById('botonR').style.display = 'none';
+        document.getElementById('botonRR').style.display = 'block';
+      }
+      function regresar(){
+        document.getElementById('botonRR').style.display = 'none';
+        document.getElementById('siresp').style.display = 'none';
+        document.getElementById('boton').style.display = 'block';
+        document.getElementById('botonR').style.display = 'block';
+        document.getElementById('siresp2').style.display = 'none';
+      }
+      function mostrarb(){
+        document.getElementById('boton').style.display = 'none';
+        document.getElementById('botonR').style.display = 'block';
+        document.getElementById('botonRR').style.display = 'block';
+        document.getElementById('siresp2').style.display = 'block';
+      }
+    </script>
+  </div>
+  
+  <!-- ÞAGINA4 -->
+  
+    <div class="pagina">
+      <div class="titulo"> Haz clic en finalizar para terminar tu denuncia. </div>
+      <input type="submit" value="Enviar">
+    </div>
+      
+  </div>
+</body>
+</html>
