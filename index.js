@@ -1,11 +1,12 @@
 const config = require("./utilidades/config")
 const express = require("express")
 const app = express()
+app.use('/', express.static('build'));
 const cors = require("cors")
 const rutasD = require("./controladores/denuncias")
 const rutasL = require("./controladores/login")
+const middleware  =require('./utilidades/middleware')
 const mongoose = require("mongoose")
-
 
 console.log("CONECTANDOME A ", config.MONGODB_URI)
 
@@ -17,7 +18,6 @@ mongoose.connect("mongodb+srv://altoalacorrupcion:w6FB2zN6prhH1f6l@cluster0.q0iu
 .catch( error => console.log("ha habido un problema con la base de datos: " + error))
 
 app.use(cors())
-
 app.use(express.json())
 
 app.get("/", (req, res) => {
@@ -27,13 +27,10 @@ res.send("<h1>Conectado al backend correctamente.</h1>")
 app.use("/api/denuncias", rutasD)
 app.use("/api/login", rutasL)
 
-const unknownEndpoint = (request, response) => {
-    response.status(404).send({ error: 'unknown endpoint' })
-  }
+app.use(middleware.unknownEndpoint)
+app.use(middleware.ErrorHandler)
 
-app.use(unknownEndpoint)
-
-app.listen(3001, () => {
+app.listen(config.PORT, () => {
     console.log("El servidor esta online! " + 3001)
 })
 

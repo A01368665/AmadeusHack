@@ -6,7 +6,7 @@ content-type: application/json
     "denunciado": "alej4314123andro",
     "caracteristicas": "me r3obo papas",
   
-    "folio":"julioregalado",
+    "folio":"trece",
     "contra":"contrasena1234"
 }
 

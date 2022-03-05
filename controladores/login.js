@@ -1,7 +1,7 @@
-const jwt = require('jsonwebtoken')
-const config = require("../utilidades/config")
-const bcrypt = require('bcrypt')
 const rutasL = require('express').Router()
+const jwt = require('jsonwebtoken')
+const bcrypt = require('bcrypt')
+const config = require("../utilidades/config")
 const Denuncia = require("../modelos/denuncia")
 
 rutasL.post('/', async (request, response) => {
@@ -25,9 +25,10 @@ rutasL.post('/', async (request, response) => {
   const usuarioToken = {
     folio: denuncia.folio,
     id: denuncia._id,
+   
   }
 
-  const token = jwt.sign(usuarioToken, config.SECRET)
+  const token = jwt.sign(usuarioToken, config.SECRET,  { expiresIn: 60*60 })
 
   response.status(200).send({ token, folio: denuncia.folio})
 })

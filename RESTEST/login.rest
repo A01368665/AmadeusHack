@@ -3,7 +3,7 @@ content-type: application/json
 
 {
 
-    "folio":"julioregalado",
-    "contra":"contrasena12334"
+    "folio":"doce",
+    "contra":"contrasena1234"
 }
 

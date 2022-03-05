@@ -1,9 +1,12 @@
-const RutasDenuncia = require("express").Router()
+const RutasD = require("express").Router()
 const bcrypt = require('bcrypt')
-const {SECRET} = require("../utilidades/config")
 const jwt = require('jsonwebtoken')
+const config= require("../utilidades/config")
 const Denuncia = require("../modelos/denuncia")
-const { response } = require("express")
+
+
+
+
 //utilizamos nuestro modelo de denuncia
 const getToken = req => {
   const autorizacion = req.get('authorization')
@@ -23,20 +26,33 @@ const getToken = req => {
 
 //solo pueden acceder usuarios a su propia solicitud.
 
-RutasDenuncia.get("/:folio", async (req, res) => {
-  const body = req.body
-  const folio = req.params.folio
-  const token = getToken(req)
-  const comparaToken = jwt.verify(token,SECRET )
-  if(!comparaToken.id){
-return response.status(401).json({error: "no existe el token solicitado."})
+RutasD.get("/:folio", async (req, res) => {
+ 
+const folio = req.params.folio
+const token = getToken(req)
+try{
+  const comparaToken = jwt.verify(token, config.SECRET)
+} catch(err) {
+return res.status(401).json({error: err})
+}
+
+
+if(!(token ||comparaToken.id)){
+return res.status(401).json({error: "no existe el token solicitado."})
   }
   
-  const respuesta = await Denuncia.findOne({folio})
-  res.json(respuesta)
+  const den = await Denuncia.findOne({folio})
+  if(den) {
+  
+    res.json(den.toJSON())
+  } else {
+    res.status(404).end()
+  }
+  
   //regresamos la nota encontrada
 })
-RutasDenuncia.post("/", async (req, res) => {
+
+RutasD.post("/", async (req, res) => {
 const body = req.body
 const { folio, contra } = body
 
@@ -66,4 +82,4 @@ if (salvar) res.status(201).json(salvar)
 //modelo preliminar de cada denuncia
 //a definir en futuro
 
-module.exports = RutasDenuncia
+module.exports = RutasD
