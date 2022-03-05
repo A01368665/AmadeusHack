@@ -1,9 +1,10 @@
 const jwt = require('jsonwebtoken')
+const config = require("../utilidades/config")
 const bcrypt = require('bcrypt')
-const loginRouter = require('express').Router()
+const rutasL = require('express').Router()
 const Denuncia = require("../modelos/denuncia")
 
-loginRouter.post('/', async (request, response) => {
+rutasL.post('/', async (request, response) => {
   const { folio, contra } = request.body
 
   const denuncia = await Denuncia.findOne({ folio })
@@ -12,9 +13,9 @@ loginRouter.post('/', async (request, response) => {
   //validamos entrada
   const correcto = denuncia === null
     ? false
-    : await bcrypt.compare(contra, denuncia.passwordHash)
+    : await bcrypt.compare(contra, denuncia.contraHash)
 
-  if (!(user && correcto)) {
+  if (!(denuncia && correcto)) {
     return response.status(401).json({
       error: "usuario o contraseña invalidos."
     })
@@ -22,13 +23,13 @@ loginRouter.post('/', async (request, response) => {
 
   //anadimos un webtoken
   const usuarioToken = {
-    username: denuncia.folio,
+    folio: denuncia.folio,
     id: denuncia._id,
   }
 
-  const token = jwt.sign(usuarioToken, process.env.SECRET)
+  const token = jwt.sign(usuarioToken, config.SECRET)
 
-  response.status(200).send({ token, username:denuncia.folio})
+  response.status(200).send({ token, folio: denuncia.folio})
 })
 
-module.exports = loginR
+module.exports = rutasL

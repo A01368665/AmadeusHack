@@ -7,7 +7,7 @@ const DenunciaSchema = new mongoose.Schema({
     denunciado: String,
     caracteristicas: String,
     folio: String,
-    contra: String,
+    contraHash: String,
 
 })
 
@@ -16,7 +16,7 @@ DenunciaSchema.set("toJSON", {
         r.id = r._id.toString()
         delete r._id
         delete r.__v
-        delete r.passwordHash
+        delete r.contraHash
     }
 })
 
