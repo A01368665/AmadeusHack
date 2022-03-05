@@ -5,6 +5,7 @@ const DenunciaSchema = new mongoose.Schema({
     titulo: String,
     denunciado: String,
     caracteristicas: String,
+    codigo: String,
 
 })
 

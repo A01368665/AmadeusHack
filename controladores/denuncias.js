@@ -10,12 +10,21 @@ RutasDenuncia.get("/", (req, res) => {
     }).catch( error => console.log(error))
 })
 
-RutasDenuncia.get("/:id", (req, res) => {
-  
-    Denuncia.findById(req.params.id)
-    
-    .then( denuncia => {
-        res.json(denuncia)
+//es necesario a;adir a este modelo a uno de usuarios
+RutasDenuncia.get("/:code", (req, res) => {
+
+    Denuncia.find({})
+    .then( denuncias => {
+        const especifico = denuncias.find( denuncia => denuncia.codigo == req.params.code)
+
+        if(especifico){
+            
+            res.json(especifico)
+        }
+        else{
+            res.send("No se encontró")
+        }
+        
     }).catch( error => console.log(error))
 })
 //esto no debe existir en documento final
@@ -23,10 +32,13 @@ RutasDenuncia.get("/:id", (req, res) => {
 
 
 RutasDenuncia.post("/", (req, res) => {
-    const body = req.body
+const body = req.body
+
 const entrada = new Denuncia({titulo: body.titulo,
 denunciado: body.denunciado, 
-caracteristicas: body.caracteristicas})
+caracteristicas: body.caracteristicas,
+codigo: body.codigo
+})
 
 
 entrada.save()
