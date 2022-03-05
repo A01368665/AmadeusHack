@@ -1,3 +1,4 @@
+
 const mongoose = require("mongoose")
 
 const DenunciaSchema = new mongoose.Schema({
@@ -5,7 +6,8 @@ const DenunciaSchema = new mongoose.Schema({
     titulo: String,
     denunciado: String,
     caracteristicas: String,
-    codigo: String,
+    folio: String,
+    contra: String,
 
 })
 
@@ -14,6 +16,7 @@ DenunciaSchema.set("toJSON", {
         r.id = r._id.toString()
         delete r._id
         delete r.__v
+        delete r.passwordHash
     }
 })
 

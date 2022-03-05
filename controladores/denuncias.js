@@ -1,54 +1,38 @@
 const RutasDenuncia = require("express").Router()
-
+const bcrypt = require('bcrypt')
 const Denuncia = require("../modelos/denuncia")
 //utilizamos nuestro modelo de denuncia
 
-RutasDenuncia.get("/", (req, res) => {
-    Denuncia.find({})
-    .then( denuncias => {
-        res.json(denuncias)
-    }).catch( error => console.log(error))
+RutasDenuncia.get("/", async (req, res) => {
+   const denuncias = await Denuncia.find({})
+   res.json(denuncias)
 })
 
-//es necesario a;adir a este modelo a uno de usuarios
-RutasDenuncia.get("/:code", (req, res) => {
-
-    Denuncia.find({})
-    .then( denuncias => {
-        const especifico = denuncias.find( denuncia => denuncia.codigo == req.params.code)
-
-        if(especifico){
-            
-            res.json(especifico)
-        }
-        else{
-            res.send("No se encontró")
-        }
-        
-    }).catch( error => console.log(error))
-})
-//esto no debe existir en documento final
-//solo es para verificar su funcionameinto
-
-
-RutasDenuncia.post("/", (req, res) => {
+RutasDenuncia.post("/", async (req, res) => {
 const body = req.body
+const { folio, contra } = body
 
-const entrada = new Denuncia({titulo: body.titulo,
+const existe = await Denuncia.findOne({ folio })
+if(existe) {
+    return res.status(400).json({
+      error: 'el folio no es unico'
+    })
+}
+
+const seguridad = 10
+  const contraHash = await bcrypt.hash(contra, seguridad)
+
+const entrada = new Denuncia({
+    titulo: body.titulo,
 denunciado: body.denunciado, 
 caracteristicas: body.caracteristicas,
-codigo: body.codigo
+codigo: body.codigo,
+folio: folio,
+contra: contraHash
 })
 
-
-entrada.save()
-.then(entr => {
-   
-    res.status(201).json(entr)
-}
-)
-.catch( error => console.log(error))
-
+const salvar = await entrada.save()
+if (salvar) res.status(201).json(salvar)
 })
 
 

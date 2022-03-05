@@ -2,9 +2,11 @@ POST http://localhost:3001/api/denuncias/
 content-type: application/json
 
 {
-    "titulo": "algo",
-    "denunciado": "alejandro",
+    "titulo": "a2123o",
+    "denunciado": "alej4314123andro",
     "caracteristicas": "me robo papas",
-    "codigo": "si"
+  
+    "folio":"12r123",
+    "contra":"s2r23r"
 }
 

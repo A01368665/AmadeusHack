@@ -2,7 +2,8 @@ const config = require("./utilidades/config")
 const express = require("express")
 const app = express()
 const cors = require("cors")
-const rutas = require("./controladores/denuncias")
+const rutasD = require("./controladores/denuncias")
+
 const mongoose = require("mongoose")
 
 
@@ -20,11 +21,10 @@ app.use(cors())
 app.use(express.json())
 
 app.get("/", (req, res) => {
-    console.log("hola sip")
-res.send("<h1>HOLA SI SIRVO</h1>")
+res.send("<h1>Conectado al backend correctamente.</h1>")
 })
 
-app.use("/api/denuncias", rutas)
+app.use("/api/denuncias", rutasD)
 const unknownEndpoint = (request, response) => {
     response.status(404).send({ error: 'unknown endpoint' })
   }
