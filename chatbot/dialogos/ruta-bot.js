@@ -1,5 +1,5 @@
 
-const ruta = (deps) => {
+const ruta = (d) => {
 return [
     (session, course) => {
 
