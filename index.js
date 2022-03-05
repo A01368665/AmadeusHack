@@ -19,7 +19,9 @@ mongoose.connect("mongodb+srv://altoalacorrupcion:w6FB2zN6prhH1f6l@cluster0.q0iu
 
 app.use(cors())
 app.use(express.json())
-
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
 
 app.use("/api/denuncias", rutasD)
 app.use("/api/login", rutasL)
